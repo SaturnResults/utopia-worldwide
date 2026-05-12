@@ -49,15 +49,21 @@ img,svg{display:block;max-width:100%}
 @media (hover:none){.cursor{display:none}}
 
 /* intro */
-.intro{position:fixed;inset:0;z-index:500;background:#000;display:grid;place-items:center;transition:opacity .8s ease,visibility .8s ease}
+.intro{position:fixed;inset:0;z-index:500;background:#000;display:grid;place-items:center;transition:opacity .8s ease,visibility .8s ease;overflow:hidden}
+.intro::before,.intro::after{content:"";position:absolute;width:60vmin;height:60vmin;border-radius:50%;filter:blur(80px);opacity:.55;pointer-events:none}
+.intro::before{background:var(--c-magenta);top:-20%;left:-15%;animation:introBlobA 3s ease-in-out infinite alternate}
+.intro::after{background:var(--c-orange);bottom:-20%;right:-15%;animation:introBlobB 3s ease-in-out infinite alternate}
+@keyframes introBlobA{to{transform:translate(20vmin,10vmin) scale(1.2)}}
+@keyframes introBlobB{to{transform:translate(-20vmin,-10vmin) scale(1.2)}}
 .intro.is-done{opacity:0;visibility:hidden}
-.intro__inner{text-align:center}
-.intro__word{font-family:"Firs";font-weight:900;font-size:clamp(60px,12vw,180px);letter-spacing:-.04em;line-height:.9;
-  background:linear-gradient(180deg,#fff 30%,var(--pink) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;
-  animation:zoom 1.4s cubic-bezier(.2,.8,.2,1) both}
-.intro__bar{width:240px;height:2px;background:rgba(255,255,255,.1);margin:0 auto 28px;border-radius:2px;overflow:hidden}
-.intro__bar span{display:block;height:100%;background:var(--pink);transform-origin:left;animation:load 1.3s cubic-bezier(.7,0,.3,1) both}
-.intro__meta{margin-top:14px;font-size:11px;letter-spacing:.4em;color:var(--mute);animation:fade 1.4s .4s both}
+.intro__inner{text-align:center;position:relative;z-index:1}
+.intro__logo{animation:logoIn 1.2s cubic-bezier(.2,.8,.2,1) both}
+.intro__logo img{height:clamp(48px,9vw,110px);width:auto;filter:drop-shadow(0 0 28px rgba(237,77,196,.55)) drop-shadow(0 0 60px rgba(232,97,42,.35));animation:logoHue 3s linear infinite}
+@keyframes logoIn{0%{transform:scale(.7);opacity:0;filter:blur(20px)}100%{transform:scale(1);opacity:1;filter:blur(0)}}
+@keyframes logoHue{0%,100%{filter:drop-shadow(0 0 28px rgba(237,77,196,.6)) drop-shadow(0 0 60px rgba(232,97,42,.35))}50%{filter:drop-shadow(0 0 28px rgba(93,31,201,.6)) drop-shadow(0 0 60px rgba(43,224,122,.35))}}
+.intro__bar{width:240px;height:3px;background:rgba(255,255,255,.12);margin:0 auto 32px;border-radius:3px;overflow:hidden}
+.intro__bar span{display:block;height:100%;background:linear-gradient(90deg,var(--c-magenta),var(--c-orange),var(--c-mustard));transform-origin:left;animation:load 1.3s cubic-bezier(.7,0,.3,1) both}
+.intro__meta{margin-top:18px;font-size:11px;letter-spacing:.4em;color:#fff;opacity:.7;animation:fade 1.4s .4s both}
 @keyframes zoom{0%{transform:scale(.85);opacity:0;filter:blur(20px)}100%{transform:scale(1);opacity:1;filter:blur(0)}}
 @keyframes load{0%{transform:scaleX(0)}100%{transform:scaleX(1)}}
 @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
@@ -272,7 +278,8 @@ body.menu-open{overflow:hidden}
 .release__badge{position:absolute;top:12px;left:12px;padding:6px 10px;font-size:10px;letter-spacing:.25em;font-weight:700;background:var(--accent);color:#000;border-radius:6px;z-index:2}
 
 /* ===== VIEW MORE ===== */
-.btn--viewmore{display:none;margin-bottom:16px}
+.btn--viewmore{display:none;margin-bottom:16px;background:var(--c-magenta);color:#000;border:none}
+.btn--viewmore:hover{background:var(--c-orange)}
 .releases.is-collapsed .release--extra{display:none}
 
 @media (max-width:780px){
