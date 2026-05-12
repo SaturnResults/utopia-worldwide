@@ -37,16 +37,42 @@ document.querySelectorAll('.section__head, .release, .party, .artist, .about, .c
   io.observe(el);
 });
 
-// Subtle parallax on hero blobs
+// Mouse-reactive hero blobs
 const blobs = document.querySelectorAll('.blob');
-window.addEventListener('mousemove', e => {
-  const x = (e.clientX / window.innerWidth - 0.5) * 30;
-  const y = (e.clientY / window.innerHeight - 0.5) * 30;
+const hero = document.querySelector('.hero');
+const blobState = Array.from(blobs).map(() => ({ x:0, y:0, tx:0, ty:0 }));
+let mouseInHero = false;
+
+hero?.addEventListener('mouseenter', () => mouseInHero = true);
+hero?.addEventListener('mouseleave', () => { mouseInHero = false; blobState.forEach(s => { s.tx = 0; s.ty = 0; }); });
+hero?.addEventListener('mousemove', e => {
+  const rect = hero.getBoundingClientRect();
+  const mx = e.clientX - rect.left;
+  const my = e.clientY - rect.top;
   blobs.forEach((b, i) => {
-    const f = (i + 1) * 0.6;
-    b.style.translate = `${x * f}px ${y * f}px`;
+    const br = b.getBoundingClientRect();
+    const cx = br.left + br.width/2 - rect.left;
+    const cy = br.top + br.height/2 - rect.top;
+    const dx = mx - cx;
+    const dy = my - cy;
+    const dist = Math.max(80, Math.hypot(dx, dy));
+    // pull strength inversely proportional to distance, capped
+    const pull = Math.min(220, 14000 / dist);
+    blobState[i].tx = (dx / dist) * pull;
+    blobState[i].ty = (dy / dist) * pull;
   });
 });
+
+function tickBlobs(){
+  blobs.forEach((b, i) => {
+    const s = blobState[i];
+    s.x += (s.tx - s.x) * 0.08;
+    s.y += (s.ty - s.y) * 0.08;
+    b.style.translate = `${s.x}px ${s.y}px`;
+  });
+  requestAnimationFrame(tickBlobs);
+}
+tickBlobs();
 
 // Mobile menu
 const burger = document.getElementById('burger');
