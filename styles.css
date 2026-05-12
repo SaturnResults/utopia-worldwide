@@ -56,9 +56,23 @@ img,svg{display:block;max-width:100%}
 @keyframes introBlobA{to{transform:translate(20vmin,10vmin) scale(1.2)}}
 @keyframes introBlobB{to{transform:translate(-20vmin,-10vmin) scale(1.2)}}
 .intro.is-done{opacity:0;visibility:hidden}
-.intro__inner{text-align:center;position:relative;z-index:1}
+.intro__inner{
+  text-align:center;
+  position:relative;
+  z-index:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
 .intro__logo{animation:logoIn 1.2s cubic-bezier(.2,.8,.2,1) both}
-.intro__logo img{height:clamp(48px,9vw,110px);width:auto;filter:drop-shadow(0 0 28px rgba(237,77,196,.55)) drop-shadow(0 0 60px rgba(232,97,42,.35));animation:logoHue 3s linear infinite}
+.intro__logo img{
+  height:clamp(48px,9vw,110px);
+  width:auto;
+  margin:0 auto;
+  filter:drop-shadow(0 0 28px rgba(237,77,196,.55)) drop-shadow(0 0 60px rgba(232,97,42,.35));
+  animation:logoHue 3s linear infinite
+}
 @keyframes logoIn{0%{transform:scale(.7);opacity:0;filter:blur(20px)}100%{transform:scale(1);opacity:1;filter:blur(0)}}
 @keyframes logoHue{0%,100%{filter:drop-shadow(0 0 28px rgba(237,77,196,.6)) drop-shadow(0 0 60px rgba(232,97,42,.35))}50%{filter:drop-shadow(0 0 28px rgba(93,31,201,.6)) drop-shadow(0 0 60px rgba(43,224,122,.35))}}
 .intro__bar{width:240px;height:3px;background:rgba(255,255,255,.12);margin:0 auto 32px;border-radius:3px;overflow:hidden}
