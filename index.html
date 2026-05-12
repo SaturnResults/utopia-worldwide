@@ -43,7 +43,38 @@
     <span>Tickets</span>
     <svg viewBox="0 0 24 24" width="14" height="14"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
   </a>
+  <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </header>
+
+<!-- MOBILE MENU -->
+<aside class="menu" id="menu" aria-hidden="true">
+  <div class="menu__inner">
+    <div class="menu__top">
+      <img src="assets/img/utopia-white.svg" alt="UTOPIA" />
+      <button class="menu__close" id="menuClose" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" width="22" height="22"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <nav class="menu__links">
+      <a href="#releases">Releases<em>01</em></a>
+      <a href="#parties">Parties<em>02</em></a>
+      <a href="#roster">Roster<em>03</em></a>
+      <a href="#about">About<em>04</em></a>
+      <a href="#contact">Contact<em>05</em></a>
+    </nav>
+    <div class="menu__cta">
+      <a class="btn btn--primary" href="https://www.outsavvy.com/event/35049/jaguar-presents-utopia-dalston-superstore" target="_blank" rel="noopener">Tickets ↗</a>
+    </div>
+    <div class="menu__socials">
+      <a href="https://instagram.com/utopia_worldwide_" target="_blank" rel="noopener">Instagram ↗</a>
+      <a href="https://linktr.ee/utopiaworldwidew" target="_blank" rel="noopener">Linktree ↗</a>
+      <a href="https://open.spotify.com/playlist/0KKNx2FYaDAoqIfbeRWnFF" target="_blank" rel="noopener">Spotify ↗</a>
+    </div>
+    <div class="menu__foot">A perfect moment ☀</div>
+  </div>
+</aside>
 
 <!-- HERO -->
 <section class="hero" id="top">
@@ -62,7 +93,7 @@
 
   <div class="hero__inner">
     <div class="hero__eyebrow">
-      <span class="dot"></span> Live now — 100% UTOPIA compilation out
+      <span class="dot dot--green"></span> <span class="hero__eyebrow-text">Live now — 100% UTOPIA compilation out</span>
     </div>
     <h1 class="hero__title">
       <span class="line"><span class="reveal">A perfect</span></span>
@@ -89,13 +120,6 @@
   <div class="hero__scroll">SCROLL ↓</div>
 </section>
 
-<!-- MARQUEE / SECTION DIVIDER -->
-<div class="marquee" aria-hidden="true">
-  <div class="marquee__track">
-    <span>UTOPIA ★</span><span>UTOPIA ★</span><span>UTOPIA ★</span><span>UTOPIA ★</span><span>UTOPIA ★</span><span>UTOPIA ★</span><span>UTOPIA ★</span><span>UTOPIA ★</span>
-  </div>
-</div>
-
 <!-- RELEASES -->
 <section class="section section--releases" id="releases">
   <div class="section__head">
@@ -105,21 +129,27 @@
   </div>
 
   <div class="releases">
-    <a class="release" href="https://open.spotify.com/playlist/0KKNx2FYaDAoqIfbeRWnFF" target="_blank" rel="noopener" style="--accent:var(--c-orange)">
+    <a class="release release--playlist" href="https://open.spotify.com/playlist/0KKNx2FYaDAoqIfbeRWnFF" target="_blank" rel="noopener" style="--accent:var(--c-orange)">
       <div class="release__art">
-        <img class="release__cover-img" src="https://i.scdn.co/image/ab67616d0000b2735511edc2ce64d4f583d0278" alt="100% UTOPIA" loading="lazy" />
+        <div class="release__mosaic" aria-hidden="true">
+          <img src="https://i.scdn.co/image/ab67616d0000b27355511edc2ce64d4f583d0278" alt="" loading="lazy" />
+          <img src="https://i.scdn.co/image/ab67616d0000b2735926e58ae64de676f3a1cafc" alt="" loading="lazy" />
+          <img src="https://i.scdn.co/image/ab67616d0000b273c405f126f8856f9fe3539f58" alt="" loading="lazy" />
+          <img src="https://i.scdn.co/image/ab67616d0000b273eb677de0dc963ffc943729cf" alt="" loading="lazy" />
+        </div>
+        <div class="release__badge">PLAYLIST</div>
         <div class="release__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></div>
       </div>
       <div class="release__body">
-        <div class="release__meta"><span>Playlist</span><span>2025</span></div>
-        <h3 class="release__title">100% UTOPIA</h3>
-        <p class="release__artist">Various Artists</p>
+        <div class="release__meta"><span>Playlist · 30 tracks</span><span>2025</span></div>
+        <h3 class="release__title">100% UTOPIA (PLAYLIST)</h3>
+        <p class="release__artist">Curated by Jaguar</p>
       </div>
     </a>
 
     <a class="release" href="https://open.spotify.com/track/1MwIuhWqaLKTA3CrAaEZM5" target="_blank" rel="noopener" style="--accent:var(--c-peach)">
       <div class="release__art">
-        <img class="release__cover-img" src="https://i.scdn.co/image/ab67616d0000b2735511edc2ce64d4f583d0278" alt="Gimme Dat" loading="lazy" />
+        <img class="release__cover-img" src="https://i.scdn.co/image/ab67616d0000b27355511edc2ce64d4f583d0278" alt="Gimme Dat" loading="lazy" />
         <div class="release__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></div>
       </div>
       <div class="release__body">
@@ -153,7 +183,7 @@
       </div>
     </a>
 
-    <a class="release" href="https://open.spotify.com/track/6okUi3JaAEPnKNIGDDAJcT" target="_blank" rel="noopener" style="--accent:var(--c-olive)">
+    <a class="release release--extra" href="https://open.spotify.com/track/6okUi3JaAEPnKNIGDDAJcT" target="_blank" rel="noopener" style="--accent:var(--c-olive)">
       <div class="release__art">
         <img class="release__cover-img" src="https://i.scdn.co/image/ab67616d0000b273c405f126f8856f9fe3539f58" alt="Bang" loading="lazy" />
         <div class="release__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></div>
@@ -165,7 +195,7 @@
       </div>
     </a>
 
-    <a class="release" href="https://open.spotify.com/track/1Ox0HmOz0yOrL3fUmDDnPD" target="_blank" rel="noopener" style="--accent:var(--c-magenta)">
+    <a class="release release--extra" href="https://open.spotify.com/track/1Ox0HmOz0yOrL3fUmDDnPD" target="_blank" rel="noopener" style="--accent:var(--c-magenta)">
       <div class="release__art">
         <img class="release__cover-img" src="https://i.scdn.co/image/ab67616d0000b273d5b66c054e290260a3d4b7eb" alt="MUZIK" loading="lazy" />
         <div class="release__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></div>
@@ -177,7 +207,7 @@
       </div>
     </a>
 
-    <a class="release" href="https://open.spotify.com/track/0mjz5WjkCumo4btY4aXX9L" target="_blank" rel="noopener" style="--accent:var(--c-purple)">
+    <a class="release release--extra" href="https://open.spotify.com/track/0mjz5WjkCumo4btY4aXX9L" target="_blank" rel="noopener" style="--accent:var(--c-purple)">
       <div class="release__art">
         <img class="release__cover-img" src="https://i.scdn.co/image/ab67616d0000b2733fe9d7a39b4e38d3f595874f" alt="Losing My Mind" loading="lazy" />
         <div class="release__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></div>
@@ -189,7 +219,7 @@
       </div>
     </a>
 
-    <a class="release" href="https://open.spotify.com/track/5LRleaCcFbA313jtQpAgV6" target="_blank" rel="noopener" style="--accent:var(--c-salmon)">
+    <a class="release release--extra" href="https://open.spotify.com/track/5LRleaCcFbA313jtQpAgV6" target="_blank" rel="noopener" style="--accent:var(--c-salmon)">
       <div class="release__art">
         <img class="release__cover-img" src="https://i.scdn.co/image/ab67616d0000b2738c0fd5e0b7dcf6299218d133" alt="Gyal 99" loading="lazy" />
         <div class="release__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></div>
@@ -201,7 +231,7 @@
       </div>
     </a>
 
-    <a class="release" href="https://open.spotify.com/track/6wAHDahF7f8cqEeABNZbEu" target="_blank" rel="noopener" style="--accent:var(--c-mustard)">
+    <a class="release release--extra" href="https://open.spotify.com/track/6wAHDahF7f8cqEeABNZbEu" target="_blank" rel="noopener" style="--accent:var(--c-mustard)">
       <div class="release__art">
         <img class="release__cover-img" src="https://i.scdn.co/image/ab67616d0000b2733f65a6e8f622fb55c034e6c7" alt="Kissing In The Strobe Light" loading="lazy" />
         <div class="release__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></div>
@@ -213,7 +243,7 @@
       </div>
     </a>
 
-    <a class="release" href="https://open.spotify.com/track/6hfHs9UZRbExI1AxBiCpJj" target="_blank" rel="noopener" style="--accent:var(--c-orange)">
+    <a class="release release--extra" href="https://open.spotify.com/track/6hfHs9UZRbExI1AxBiCpJj" target="_blank" rel="noopener" style="--accent:var(--c-orange)">
       <div class="release__art">
         <img class="release__cover-img" src="https://i.scdn.co/image/ab67616d0000b27384a0f4b06261267e04dc420a" alt="WHITE PONY" loading="lazy" />
         <div class="release__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></div>
@@ -225,7 +255,7 @@
       </div>
     </a>
 
-    <a class="release" href="https://open.spotify.com/track/1twfzIIdZiI08eM7yVhE9E" target="_blank" rel="noopener" style="--accent:var(--c-magenta)">
+    <a class="release release--extra" href="https://open.spotify.com/track/1twfzIIdZiI08eM7yVhE9E" target="_blank" rel="noopener" style="--accent:var(--c-magenta)">
       <div class="release__art">
         <img class="release__cover-img" src="https://i.scdn.co/image/ab67616d0000b2733c02a8f71a45f67da3884bcb" alt="Talk 2 Me" loading="lazy" />
         <div class="release__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></div>
@@ -237,7 +267,7 @@
       </div>
     </a>
 
-    <a class="release" href="https://open.spotify.com/track/49BcUseE7kHJ5YEZ51EQgr" target="_blank" rel="noopener" style="--accent:var(--c-blue)">
+    <a class="release release--extra" href="https://open.spotify.com/track/49BcUseE7kHJ5YEZ51EQgr" target="_blank" rel="noopener" style="--accent:var(--c-blue)">
       <div class="release__art">
         <img class="release__cover-img" src="https://i.scdn.co/image/ab67616d0000b273f3d631474e2b207829bd1ffd" alt="WILD!" loading="lazy" />
         <div class="release__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></div>
@@ -251,6 +281,7 @@
   </div>
 
   <div class="section__foot">
+    <button class="btn btn--ghost btn--viewmore" id="viewMore" type="button">View more releases ↓</button>
     <a class="btn btn--ghost" href="https://open.spotify.com/playlist/0KKNx2FYaDAoqIfbeRWnFF" target="_blank" rel="noopener">Full 100% UTOPIA playlist on Spotify →</a>
   </div>
 </section>

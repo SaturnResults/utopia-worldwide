@@ -48,6 +48,49 @@ window.addEventListener('mousemove', e => {
   });
 });
 
+// Mobile menu
+const burger = document.getElementById('burger');
+const menu = document.getElementById('menu');
+const menuClose = document.getElementById('menuClose');
+let backdrop = document.createElement('div');
+backdrop.className = 'menu__backdrop';
+document.body.appendChild(backdrop);
+
+function openMenu(){
+  menu.classList.add('is-open');
+  backdrop.classList.add('is-open');
+  burger.classList.add('is-open');
+  burger.setAttribute('aria-expanded','true');
+  menu.setAttribute('aria-hidden','false');
+  document.body.classList.add('menu-open');
+}
+function closeMenu(){
+  menu.classList.remove('is-open');
+  backdrop.classList.remove('is-open');
+  burger.classList.remove('is-open');
+  burger.setAttribute('aria-expanded','false');
+  menu.setAttribute('aria-hidden','true');
+  document.body.classList.remove('menu-open');
+}
+burger?.addEventListener('click', openMenu);
+menuClose?.addEventListener('click', closeMenu);
+backdrop.addEventListener('click', closeMenu);
+menu?.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', closeMenu));
+
+// View more (mobile only)
+const releasesGrid = document.querySelector('.releases');
+const viewMoreBtn = document.getElementById('viewMore');
+function applyCollapse(){
+  if (window.innerWidth <= 780) releasesGrid?.classList.add('is-collapsed');
+  else releasesGrid?.classList.remove('is-collapsed');
+}
+applyCollapse();
+window.addEventListener('resize', applyCollapse);
+viewMoreBtn?.addEventListener('click', () => {
+  const collapsed = releasesGrid.classList.toggle('is-collapsed');
+  viewMoreBtn.textContent = collapsed ? 'View more releases ↓' : 'Show fewer ↑';
+});
+
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
